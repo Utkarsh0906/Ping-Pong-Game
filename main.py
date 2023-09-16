@@ -48,6 +48,12 @@ while(game_on):
     ball.move(x_move,y_move)
     screen.update()
     
+    #if paddle try to go out of bounds
+    if(r_paddle.ycor()>280 or r_paddle.ycor()<-280):
+        r_paddle.goto(r_paddle.xcor(),r_paddle.ycor()*-0.9)
+    if(l_paddle.ycor()>280 or l_paddle.ycor()<-280):
+        l_paddle.goto(l_paddle.xcor(),l_paddle.ycor()*-0.9)
+    
     #collision with top or bottom wall
     if(ball.ycor()>=280 or ball.ycor()<=-280):
         y_move *= -1
